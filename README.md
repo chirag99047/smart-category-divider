@@ -12,7 +12,7 @@ WordPress plugin for reviewing category suggestions before changing posts.
 6. Review the selected distribution, then apply. **Next batch** remembers your place.
 
 Only selected posts change. Ambiguous matches need a category choice. The plugin
-does not force equal category sizes or run categorization on new posts automatically.
+does not force equal category sizes and can optionally categorize new posts on save.
 Existing rules and undo history remain when upgrading.
 
 ## Automatic plugin updates
@@ -37,3 +37,7 @@ can delay it. Auto-updates do not generate new plugin versions.
 
 Requires WordPress 6.0+ and PHP 7.4+. Licensed GPL-2.0-or-later.
 See `readme.txt` for matching, permissions, privacy and retention details.
+
+Automatic categorization (1.2.0): Enable the checkbox in Tools > Category Divider.
+Clear matches on new posts are assigned on save. Posts > All Posts shows the
+Auto category status. Uncertain matches stay unchanged for review.

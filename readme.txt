@@ -3,7 +3,7 @@ Contributors: custom-site-tools
 Tags: categories, bulk editing, content organization
 Requires at least: 6.0
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,8 +54,11 @@ empty. Continue with the next batch until the end. Draft, pending, scheduled,
 private and published posts are included, subject to edit permissions. Preview
 expires in one hour, is private to your user account, and is replaced by each scan.
 This release handles posts and the built-in category taxonomy, not pages,
-WooCommerce products, or custom taxonomies. It does not run on publish in the
-background: scan again for new posts.
+WooCommerce products, or custom taxonomies. Automatic categorization can be enabled separately for newly added posts. It
+waits for title and body, preserves non-default categories, and marks unclear
+matches for review. Existing posts are not enrolled. Unresolved new posts retry
+on their next save. Automatic assignments are not in batch Undo; use the post
+editor to change them. Per-post _scd_auto_status metadata is retained.
 
 Undo retains the last 20 changed batches per user. Later category edits block
 undo for that post; unresolved conflicts are retained in the latest batch.
@@ -71,7 +74,7 @@ Enable auto-updates for this plugin on Plugins > Installed Plugins. WordPress
 checks published stable releases at https://github.com/chirag99047/smart-category-divider
 on its normal update schedule. Releases must include smart-category-divider.zip.
 Checks are cached for one hour. Server cron/network settings can delay updates.
-This does not automatically categorize posts or create future plugin versions.
+The separate automatic categorization setting controls new posts. Version updates do not create future plugin versions.
 
 == Changelog ==
 = 1.1.0 =
@@ -82,3 +85,7 @@ release updates using the native WordPress auto-update setting.
 = 1.0.0 =
 Initial release: configurable rules, hierarchical matching, review queue,
 distribution warnings, controlled batch application and conflict-aware undo.
+
+Automatic categorization (1.2.0): Enable the checkbox in Tools > Category Divider.
+Clear matches on new posts are assigned on save. Posts > All Posts shows the
+Auto category status. Uncertain matches stay unchanged for review.
